@@ -1,0 +1,5 @@
+server.port: 8775
+
+spring.profiles.include: postgre-aliyun ,file-aliyun
+
+spring.thymeleaf.prefix: classpath:/templates/

@@ -1,0 +1,76 @@
+<configuration>
+
+    <appender name="daily" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %level [%thread] %logger{10} %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="wallet" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %level [%thread] %logger{10} %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>./logs/%d{yyyy-MM-dd}_%i.ERROR.log</fileNamePattern>
+
+            <!-- keep 30 days' worth of history capped at 30GB total size -->
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>30GB</totalSizeCap>
+
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %level [%thread] %logger %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>./logs/%d{yyyy-MM-dd}_%i.WARN.log</fileNamePattern>
+
+            <!-- keep 30 days' worth of history capped at 30GB total size -->
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>30GB</totalSizeCap>
+
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %level [%thread] %logger{10} %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="wallet" level="INFO">
+        <appender-ref ref="wallet"/>
+    </logger>
+
+    <logger name="com.atomikos">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="org.springframework.cloud.netflix.feign">
+        <level value="DEBUG"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="daily"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="ERROR"/>
+    </root>
+
+</configuration>

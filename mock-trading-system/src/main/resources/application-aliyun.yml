@@ -1,0 +1,39 @@
+server:
+  port: 28100
+  undertow:
+    io-threads: 16
+    worker-threads: 128
+    buffer-size: 1024
+    direct-buffers: true
+  connection-timeout: 3000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://172.16.63.34:8761/eureka}
+  instance:
+    preferIpAddress: true
+#    statusPageUrlPath: ${eureka.hostname}/info
+#    healthCheckUrlPath: ${eureka.hostname}/health
+    health-check-url:
+      enabled: true
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+spring:
+  application:
+    name: mock-trading-system
+  profiles:
+    include: postgre-aliyun,redis-aliyun
+
+logging:
+  level:
+    com:
+      mouzhiapp:
+        stock_market:
+          mapper: debug
+          mapper205: debug

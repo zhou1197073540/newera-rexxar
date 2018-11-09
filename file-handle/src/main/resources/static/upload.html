@@ -1,0 +1,45 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .content{
+        width: 50%;
+        height: auto;
+        padding-left: 20%;
+        margin-top: 2%;
+    }
+
+</style>
+<body>
+<div class="content">
+<form action="/fileUpload" enctype="multipart/form-data" method="post">
+    <div class="input-group">
+        <span class="input-group-addon">标题</span>
+        <input type="text" class="form-control" placeholder="输入标题" name="title">
+    </div>
+    </br>
+    <div class="input-group">
+        <span class="input-group-addon">机构</span>
+        <input type="text" class="form-control" placeholder="输入内容" name="organ">
+    </div>
+    </br>
+    <div class="input-group">
+        <span class="input-group-addon">内容</span>
+        <textarea class="form-control" placeholder="输入内容" name="content">
+        </textarea>
+    </div>
+    </br>
+    <input type="file" name="photos"/> <br>
+    <input type="submit" value="上传"/>
+
+</form>
+</div>
+</body>
+</html>

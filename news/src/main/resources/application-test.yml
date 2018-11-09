@@ -1,0 +1,13 @@
+server:
+  port: 8773
+spring:
+  application:
+    name: news
+  profiles:
+    include: postgre-test , redis-test ,kafka-test
+logging:
+  level:
+    com:
+      mzkj:
+        news:
+          mapper: error

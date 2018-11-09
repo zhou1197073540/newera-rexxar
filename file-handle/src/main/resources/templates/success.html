@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .content{
+        width: 50%;
+        height: auto;
+        padding-left: 20%;
+        margin-top: 2%;
+    }
+
+</style>
+<body>
+<div class="content">
+    <div class="panel-body">上传成功，
+        <!--/*@thymesVar id="imgUrl" type="templates"*/-->
+        <a th:href="${imgUrl}">图片url</a>
+    </div>
+    </br>
+    <div class="panel-body">
+        <a href="upload.html"> 返回上传页面</a>
+    </div>
+</form>
+</div>
+</body>
+</html>

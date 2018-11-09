@@ -1,0 +1,11 @@
+# 设置单个文件最大内存
+multipart.maxFileSize: 50Mb
+# 设置所有文件最大内存
+multipart.maxRequestSize: 50Mb
+# 自定义文件上传路径
+web.upload-win-path: C:/images
+#205
+web.upload-test-path: /opt/images
+#scp到aliyun的目录下面
+web.upload-aliyun-path: /home/imgroot/html/upload
+

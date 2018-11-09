@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "isNoteTaker",
+      "type": "java.lang.String",
+      "description": "Description for isNoteTaker."
+  }
+] }

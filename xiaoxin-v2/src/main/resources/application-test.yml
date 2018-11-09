@@ -1,0 +1,36 @@
+server:
+  port: 28090
+  undertow:
+    io-threads: 16
+    worker-threads: 256
+    buffer-size: 1024
+    direct-buffers: true
+  connection-timeout: 3000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://172.16.20.205:8761/eureka}
+  instance:
+    preferIpAddress: true
+#    statusPageUrlPath: ${eureka.hostname}/info
+#    healthCheckUrlPath: ${eureka.hostname}/health
+    health-check-url:
+      enabled: true
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds:  5000
+
+spring:
+  application:
+    name: xiaoxin
+  profiles:
+    include: redis-test,postgre-test,kafka-test
